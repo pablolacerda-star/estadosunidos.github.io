@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador - Professor Jair</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #contador {
+      font-size: 48px;
+      margin: 20px 0;
+      color: #1a73e8;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1a73e8;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #1557b0;
+    }
+
+    .reset {
+      background-color: #e53935;
+      margin-left: 10px;
+    }
+
+    .reset:hover {
+      background-color: #b71c1c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quantas vezes o Professor Jair falou dos Estados Unidos?</h1>
+
+  <div id="contador">0</div>
+
+  <button onclick="incrementar()">Ele falou de novo! 🦅</button>
+  <button class="reset" onclick="resetar()">Resetar</button>
+
+  <!-- Áudio da águia -->
+  <audio id="somAguia" src="aguia.mp3"></audio>
+
+  <script>
+    let contador = 0;
+    const som = document.getElementById("somAguia");
+
+    function incrementar() {
+      contador++;
+      document.getElementById("contador").textContent = contador;
+
+      // Toca o som
+      som.currentTime = 0; 
+      som.play();
+    }
+
+    function resetar() {
+      contador = 0;
+      document.getElementById("contador").textContent = contador;
+    }
+  </script>
+
+</body>
+</html>
